@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Click the Target Game</title>
+    <style>
+        body {
+            text-align: center;
+            font-family: Arial;
+            background: lightblue;
+        }
+
+        #game {
+            width: 600px;
+            height: 400px;
+            background: white;
+            margin: 20px auto;
+            position: relative;
+            border: 3px solid black;
+        }
+
+        #target {
+            width: 50px;
+            height: 50px;
+            background: red;
+            border-radius: 50%;
+            position: absolute;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+
+<h1>?? Click the Target</h1>
+<h2>Score: <span id="score">0</span></h2>
+
+<div id="game">
+    <div id="target"></div>
+</div>
+
+<script>
+    let score = 0;
+
+    const target = document.getElementById("target");
+    const game = document.getElementById("game");
+    const scoreText = document.getElementById("score");
+
+    target.onclick = function() {
+        score++;
+        scoreText.innerText = score;
+
+        let x = Math.random() * (game.clientWidth - 50);
+        let y = Math.random() * (game.clientHeight - 50);
+
+        target.style.left = x + "px";
+        target.style.top = y + "px";
+    };
+</script>
+
+</body>
+</html>
